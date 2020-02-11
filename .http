@@ -1,0 +1,20 @@
+POST http://localhost:3030/register
+Content-Type: application/json
+
+{
+    "name": "Vinicius2",
+    "email": "vinicius2@gmail.com",
+    "password": "3131"
+}
+
+###
+GET http://localhost:3030/register
+
+###
+POST http://localhost:3030/authenticate
+Content-Type: application/json
+
+{
+    "email": "vinicius2@gmail.com",
+    "password": "3131"
+}
