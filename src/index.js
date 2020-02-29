@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 //const passport = require('passport');
 const path = require('path');
+const fs = require('fs');
 const dotenv = require('dotenv');
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
@@ -43,10 +44,9 @@ db.on('error', (err) => {
 /**
  * Rotas
  */
-const authController = require('./Controllers/authController');
-app.use('/', authController);
-const projectsController = require('./Controllers/projectController');
-app.use('/projects', projectsController);
+fs.readdirSync(path.resolve(__dirname, 'app', 'Controllers'))
+    .filter(file => (((file.indexOf('.')) !== 0) && (file !== "index.js")))
+    .forEach(file => app.use(require(path.resolve(__dirname, 'app', 'Controllers', file))));
 
 
 

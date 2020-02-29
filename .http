@@ -1,4 +1,7 @@
-POST http://localhost:3030/register
+@baseUrl = http://localhost:3030
+
+
+POST {{baseUrl}}/register
 Content-Type: application/json
 
 {
@@ -8,13 +11,38 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3030/register
+GET {{baseUrl}}/register
 
 ###
-POST http://localhost:3030/authenticate
+POST {{baseUrl}}/authenticate
 Content-Type: application/json
 
 {
     "email": "vinicius2@gmail.com",
     "password": "3131"
 }
+
+###
+POST {{baseUrl}}/forgot_password
+Content-Type: application/json
+
+{
+    "email": "vinicius2@gmail.com"
+}
+
+### Listar todos os projetos
+GET {{baseUrl}}/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTcwNzMxYzJmOWQzMDI1YzA1ZjI5YyIsImlhdCI6MTU4MjkzNjI1NSwiZXhwIjoxNTgzMDIyNjU1fQ.8edf6814q37GSvja77WttUohOOKF2VQHiYdjOnIM0vM
+
+### Listar um projeto específico
+GET {{baseUrl}}/projects/
+
+###
+POST {{baseUrl}}/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTcwNzMxYzJmOWQzMDI1YzA1ZjI5YyIsImlhdCI6MTU4MjkzNTczNiwiZXhwIjoxNTgzMDIyMTM2fQ.hwyX2BmqzK54gqhJKvGo8MNUSojlRkkuuwcDi7jkjXM
+
+###
+PUT {{baseUrl}}/projects/
+
+###
+DELETE {{baseUrl}}/projects/
